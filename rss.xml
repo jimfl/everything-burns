@@ -4,7 +4,7 @@
     <title>Everything Burns</title>
   <link>https://jimfl.github.io/everything-burns/</link>
   <description>Re-ignited</description>
-  <lastBuildDate>Sun, 06 Nov 22 18:02:15 +0000</lastBuildDate>
+  <lastBuildDate>Tue, 15 Nov 22 00:38:27 +0000</lastBuildDate>
   <language>en-us</language>
 
   <item>
@@ -35,6 +35,7 @@
 <ul>
   <li><a href="/everything-burns/index.html">Home</a></li>
   <li><a href="/everything-burns/posts">Posts</a></li>
+  <li>Mastodon: <a rel="me" href="https://hachyderm.io/@jimfl">@jimfl@hachyderm.io</a></li>
 </ul>
 </nav>
       <hr>
@@ -144,7 +145,7 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Sun, 06 Nov 22 18:02:15 +0000</pubDate>
+  <pubDate>Tue, 15 Nov 22 00:38:27 +0000</pubDate>
   <link>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-10-31-escher.html</link>
   <guid>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-10-31-escher.html</guid>
 </item>
