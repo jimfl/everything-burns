@@ -4,10 +4,123 @@
     <title>Everything Burns</title>
   <link>https://jimfl.github.io/everything-burns/</link>
   <description>Re-ignited</description>
-  <lastBuildDate>Mon, 19 Dec 22 19:02:51 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 21 Dec 22 18:19:24 +0000</lastBuildDate>
   <language>en-us</language>
 
   <item>
+  <title>Obligatory Colophon</title>
+  <description><![CDATA[
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Obligatory Colophon - Everything Burns</title>
+    <link rel="stylesheet" href="/everything-burns/assets/css/style.css">
+    <link rel="stylesheet" href="/everything-burns/assets/css/prism.css">
+    
+<!--==========================================-->
+<!-- Override "includes/head-extras.html.eex" -->
+<!-- to add more tags inside this <head> tag. -->
+<!--==========================================-->
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="top">
+<h1><a href="/everything-burns/">Everything Burns</a></h1>
+<p>Re-ignited</p>
+</header>
+      <nav>
+<ul>
+  <li><a href="/everything-burns/index.html">Home</a></li>
+  <li><a href="/everything-burns/posts">Posts</a></li>
+  <li>Mastodon: <a rel="me" href="https://hachyderm.io/@jimfl">@jimfl@hachyderm.io</a></li>
+</ul>
+</nav>
+      <hr>
+      <main><article class="post"><header><h1 id="obligatory-colophon">Obligatory Colophon</h1><p>
+      Wednesday, 21 Dec 2022
+      
+        <span class="tags">
+          Tags:
+          
+            <a class="tag" href="/everything-burns/tags/elixir">elixir</a><a class="tag" href="/everything-burns/tags/meta">meta</a></span></p></header><div><p>A few notes on history and how this site is put together. </p><p>In 2001, I discovered and embraced the weblog phenomenon, and maintained a personal blog, running on a 
+dusty linux box under my desk, likely in violation of my DSL terms of service. I ran that blog until 2005,
+when ne’er-do-wells exploited a zero-day vulnerability in the wiki software I was running on the same box,
+and trashed the system. “Certainly, you had backups,” you might be asking. Well, allow me to retort. I did
+not. So, I moved on with my life, and embraced Twitter instead, leaving that platform in 2016 for obvious
+reasons.</p><p>That blog, Everything Burns, is still more or less archived on archive.org. Here are some screenshots of the 
+heder over time:</p><p><img src="/everything-burns/media/old-eb/eb1.png" alt="Original Everything Burns header"/><img src="/everything-burns/media/old-eb/eb2.png" alt="Original Everything Burns header"/><img src="/everything-burns/media/old-eb/eb3.png" alt="Original Everything Burns header"/></p><p>When I retired from software development, I decided that I wanted to have a place to write again, but on
+my terms.</p><ul><li>Not self-hosted, but I have full control of the content in neutral format, like Markdown.
+</li><li>Movable. I can re-host if needed.
+</li><li>Customizable, so that I can ad features if need be
+</li><li>Supports blog posts and other non-blog type content (plain pages)
+</li></ul><p>In terms of hosting, I don’t really want to have a personal domain. I settled on github pages as the hosting
+solution, and started looking for a suitable, extensible static website generation tool. <a href="https://jekyllrb.com/">Jekyll</a>
+seemed pretty powerful and theme-able, but I rejected it out of hand because Ruby. If I was going to
+reject a solution based on language, I thought I might search for a solution based on language, and
+started looking for an Elixir-based static site generator. I found <a href="https://dalgona.github.io/Serum/">Serum</a>,
+which should look familiar.</p><p>Even though serum supports themes, I haven’t yet been arsed to change from the default theme. This is a contrast 
+from the previous incarnation when I would spend hours editing MovableType templates and piddling aroung in
+The Gimp. I did end up adding RSS support, via the event hooks facility, and that was really straightforward.</p><p>The workflow for creating a post involves using a <code class="inline">mix</code> task that comes with serum:</p><pre><code class="">$ mix serum.gen.blog --title &quot;Obligatory Colophon&quot; --output obligatory-colophon</code></pre><p>Then editing the resulting Markdown file (I am using the <a href="https://helix-editor.com/">Helix</a> editor, which
+may deserve a separate post in itself.)</p><pre><code class="">---
+title: Obligatory Colophon
+date: 2022-12-21 09:05:48
+tags: meta
+---
+
+A few notes on history and how this site is put together. </code></pre><p>I can view the whole site locally as I edit with another <code class="inline">mix</code> task that runs a server on localhost.</p><p>To publish, I just </p><pre><code class="">$ mix serum.build 
+$ cd site
+$ git add .
+$ git commit -m &quot;I wrote a thing&quot;
+$ git push origin main  </code></pre><p>and a few minutes later the post appears and is in the RSS feed.</p><p>I can operate this setup from any desktop operating system. Presently I am using MacOS. </p><p>And yes, I have backups.</p></div></article></main>
+      <hr>
+      <footer>
+        
+<!--=====================================-->
+<!-- Override "includes/footer.html.eex" -->
+<!-- to customize your footer contents.  -->
+<!--=====================================-->
+
+        <p>
+          Powered by <a href="https://github.com/Dalgona/Serum">Serum</a> v1.5.1,
+          with <a href="https://github.com/Dalgona/serum-theme-essence">Essence</a> theme
+        </p>
+      </footer>
+    </div>
+    <script src="/everything-burns/assets/js/prism.js"></script>
+  </body>
+</html>
+<script>
+const ws_url = "ws://" + location.host + "/serum_live_reloader";
+var ws;
+
+connect();
+
+function connect() {
+  ws = new WebSocket(ws_url);
+  ws.onmessage = onMessage;
+  ws.onclose = onClose;
+}
+
+function onMessage(e) {
+  if (e.data === "reload") {
+    location.reload();
+  }
+}
+
+function onClose(e) {
+  console.warn("WebSocket disconnected from server. Reconnecting in 10 seconds.");
+  setTimeout(connect, 10000)
+}
+</script>
+]]></description>
+  <pubDate>Wed, 21 Dec 22 18:19:24 +0000</pubDate>
+  <link>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-12-21-obligatory-colophon.html</link>
+  <guid>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-12-21-obligatory-colophon.html</guid>
+</item>
+<item>
   <title>Signing Is Not Trivial</title>
   <description><![CDATA[
 <!doctype html>
@@ -231,7 +344,7 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Mon, 19 Dec 22 19:02:51 +0000</pubDate>
+  <pubDate>Wed, 21 Dec 22 18:19:24 +0000</pubDate>
   <link>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-12-15-signing-problems.html</link>
   <guid>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-12-15-signing-problems.html</guid>
 </item>
@@ -373,7 +486,7 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Mon, 19 Dec 22 19:02:51 +0000</pubDate>
+  <pubDate>Wed, 21 Dec 22 18:19:24 +0000</pubDate>
   <link>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-10-31-escher.html</link>
   <guid>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-10-31-escher.html</guid>
 </item>
