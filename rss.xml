@@ -4,7 +4,7 @@
     <title>Everything Burns</title>
   <link>https://jimfl.github.io/everything-burns/</link>
   <description>Re-ignited</description>
-  <lastBuildDate>Wed, 21 Dec 22 18:28:25 +0000</lastBuildDate>
+  <lastBuildDate>Thu, 22 Dec 22 17:59:26 +0000</lastBuildDate>
   <language>en-us</language>
 
   <item>
@@ -116,9 +116,9 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Wed, 21 Dec 22 18:28:25 +0000</pubDate>
-  <link>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-12-21-obligatory-colophon.html</link>
-  <guid>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-12-21-obligatory-colophon.html</guid>
+  <pubDate>Thu, 22 Dec 22 17:59:26 +0000</pubDate>
+  <link>https://jimfl.github.io/everything-burns/posts/2022-12-21-obligatory-colophon.html</link>
+  <guid>https://jimfl.github.io/everything-burns/posts/2022-12-21-obligatory-colophon.html</guid>
 </item>
 <item>
   <title>Signing Is Not Trivial</title>
@@ -344,9 +344,9 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Wed, 21 Dec 22 18:28:25 +0000</pubDate>
-  <link>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-12-15-signing-problems.html</link>
-  <guid>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-12-15-signing-problems.html</guid>
+  <pubDate>Thu, 22 Dec 22 17:59:26 +0000</pubDate>
+  <link>https://jimfl.github.io/everything-burns/posts/2022-12-15-signing-problems.html</link>
+  <guid>https://jimfl.github.io/everything-burns/posts/2022-12-15-signing-problems.html</guid>
 </item>
 <item>
   <title>Escher-inspired Tesselations With Marked Tiles</title>
@@ -486,9 +486,9 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Wed, 21 Dec 22 18:28:25 +0000</pubDate>
-  <link>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-10-31-escher.html</link>
-  <guid>https://jimfl.github.io/everything-burns//everything-burns/posts/2022-10-31-escher.html</guid>
+  <pubDate>Thu, 22 Dec 22 17:59:26 +0000</pubDate>
+  <link>https://jimfl.github.io/everything-burns/posts/2022-10-31-escher.html</link>
+  <guid>https://jimfl.github.io/everything-burns/posts/2022-10-31-escher.html</guid>
 </item>
 
 </channel>
