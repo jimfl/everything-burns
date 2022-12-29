@@ -1,0 +1,90 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Cable Management Hack - Everything Burns</title>
+    <link rel="stylesheet" href="/everything-burns/assets/css/style.css">
+    <link rel="stylesheet" href="/everything-burns/assets/css/prism.css">
+    
+<link rel="alternate" type="application/rss+xml" title="Feed for Everything Burns" href="https://jimfl.github.io/everything-burns/rss.xml" />
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="top">
+<h1><a href="/everything-burns/">Everything Burns</a></h1>
+<p>Re-ignited</p>
+</header>
+      <nav>
+<ul>
+  <li><a href="/everything-burns/index.html">Home</a></li>
+  <li><a href="/everything-burns/posts">Posts</a></li>
+  <li>Mastodon: <a rel="me" href="https://hachyderm.io/@jimfl">@jimfl@hachyderm.io</a></li>
+</ul>
+</nav>
+      <hr>
+      <main><article class="post"><header><h1 id="cable-management-hack">Cable Management Hack</h1><p>
+      Thursday, 29 Dec 2022
+      
+        <span class="tags">
+          Tags:
+          
+            <a class="tag" href="/everything-burns/tags/diy">diy</a><a class="tag" href="/everything-burns/tags/hack">hack</a></span></p></header><div><p>I have a desk that has a very nice, metal cable management grille attached to the rear legs, which is one
+of the reasons I bought the desk. </p><p><img src="/everything-burns/media/noodlemgmt/grille.jpg" alt="Cable Management Grille"/></p><p>What I found though is that over time, it just became a very visible 
+jumble of wires and zip ties. Making any changes was a pain. I have been
+itching to tear it out and re-do the cabling to make it pretty again, but
+I knew that eventually it would just get jumbled again. I started to noodle
+about ways to keep cables secure, but in a flexible, easy to modify way.</p><p>After some noodling, I finally arrived at pool noodles, which we just happen
+to have lying around. Here’s what I came up with. Slice the noodle along the
+length. The excess cables go into the slot and hang out in the cavity.</p><p>I wanted to run cables through the entire length of the tube if need be, so I
+couldn’t just zip tie the whole noodle around the outer circumference to the
+grid. So I drilled some holes in the back side  of the pool noodle, and run the
+zip tie through that, along the length of the tube.</p><p><img src="/everything-burns/media/noodlemgmt/noodle_hack.png" alt="split noodle"/></p><p>I put three sets of zip tie holes along the 32in. length of pool noodle, and
+connected it to the back side  of the grille, facing the wall. It isn’t really
+visible from the front side (where I’ve attached a power strip and a power
+brick).</p><p>This works great. I discovered that I don’t even have to stuff the whole cable
+into the cavity like I originally envisioned, I can just take  the slack into a
+loop, and jam the loop into the slot. This makes it easy to re-arrange things as 
+needed.</p></div></article></main>
+      <hr>
+      <footer>
+        
+<!--=====================================-->
+<!-- Override "includes/footer.html.eex" -->
+<!-- to customize your footer contents.  -->
+<!--=====================================-->
+
+        <p>
+          Powered by <a href="https://github.com/Dalgona/Serum">Serum</a> v1.5.1,
+          with <a href="https://github.com/Dalgona/serum-theme-essence">Essence</a> theme
+        </p>
+      </footer>
+    </div>
+    <script src="/everything-burns/assets/js/prism.js"></script>
+  </body>
+</html>
+<script>
+const ws_url = "ws://" + location.host + "/serum_live_reloader";
+var ws;
+
+connect();
+
+function connect() {
+  ws = new WebSocket(ws_url);
+  ws.onmessage = onMessage;
+  ws.onclose = onClose;
+}
+
+function onMessage(e) {
+  if (e.data === "reload") {
+    location.reload();
+  }
+}
+
+function onClose(e) {
+  console.warn("WebSocket disconnected from server. Reconnecting in 10 seconds.");
+  setTimeout(connect, 10000)
+}
+</script>
