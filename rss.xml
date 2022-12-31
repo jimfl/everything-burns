@@ -4,7 +4,7 @@
     <title>Everything Burns</title>
   <link>https://jimfl.github.io/everything-burns/</link>
   <description>Re-ignited</description>
-  <lastBuildDate>Thu, 29 Dec 22 23:25:07 +0000</lastBuildDate>
+  <lastBuildDate>Sat, 31 Dec 22 17:54:13 +0000</lastBuildDate>
   <language>en-us</language>
 
   <item>
@@ -100,7 +100,7 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Thu, 29 Dec 22 23:25:07 +0000</pubDate>
+  <pubDate>Sat, 31 Dec 22 17:54:13 +0000</pubDate>
   <link>https://jimfl.github.io/everything-burns/posts/2022-12-29-cable-management-hack.html</link>
   <guid>https://jimfl.github.io/everything-burns/posts/2022-12-29-cable-management-hack.html</guid>
 </item>
@@ -156,7 +156,7 @@ seemed pretty powerful and theme-able, but I rejected it out of hand because Rub
 reject a solution based on language, I thought I might search for a solution based on language, and
 started looking for an Elixir-based static site generator. I found <a href="https://dalgona.github.io/Serum/">Serum</a>,
 which should look familiar.</p><p>Even though serum supports themes, I haven’t yet been arsed to change from the default theme. This is a contrast 
-from the previous incarnation when I would spend hours editing MovableType templates and piddling aroung in
+from the previous incarnation when I would spend hours editing MovableType templates and piddling around in
 The Gimp. I did end up adding RSS support, via the event hooks facility, and that was really straightforward.</p><p>The workflow for creating a post involves using a <code class="inline">mix</code> task that comes with serum:</p><pre><code class="">$ mix serum.gen.blog --title &quot;Obligatory Colophon&quot; --output obligatory-colophon</code></pre><p>Then editing the resulting Markdown file (I am using the <a href="https://helix-editor.com/">Helix</a> editor, which
 may deserve a separate post in itself.)</p><pre><code class="">---
 title: Obligatory Colophon
@@ -210,7 +210,7 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Thu, 29 Dec 22 23:25:07 +0000</pubDate>
+  <pubDate>Sat, 31 Dec 22 17:54:13 +0000</pubDate>
   <link>https://jimfl.github.io/everything-burns/posts/2022-12-21-obligatory-colophon.html</link>
   <guid>https://jimfl.github.io/everything-burns/posts/2022-12-21-obligatory-colophon.html</guid>
 </item>
@@ -435,7 +435,7 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Thu, 29 Dec 22 23:25:07 +0000</pubDate>
+  <pubDate>Sat, 31 Dec 22 17:54:13 +0000</pubDate>
   <link>https://jimfl.github.io/everything-burns/posts/2022-12-15-signing-problems.html</link>
   <guid>https://jimfl.github.io/everything-burns/posts/2022-12-15-signing-problems.html</guid>
 </item>
@@ -574,7 +574,7 @@ function onClose(e) {
 }
 </script>
 ]]></description>
-  <pubDate>Thu, 29 Dec 22 23:25:07 +0000</pubDate>
+  <pubDate>Sat, 31 Dec 22 17:54:13 +0000</pubDate>
   <link>https://jimfl.github.io/everything-burns/posts/2022-10-31-escher.html</link>
   <guid>https://jimfl.github.io/everything-burns/posts/2022-10-31-escher.html</guid>
 </item>
