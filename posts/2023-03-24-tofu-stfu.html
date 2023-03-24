@@ -1,0 +1,157 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>TOFU? STFU! - Everything Burns</title>
+    <link rel="stylesheet" href="/everything-burns/assets/css/style.css">
+    <link rel="stylesheet" href="/everything-burns/assets/css/prism.css">
+    
+<link rel="alternate" type="application/rss+xml" title="Feed for Everything Burns" href="https://jimfl.github.io/everything-burns/rss.xml" />
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="top">
+<h1><a href="/everything-burns/">Everything Burns</a></h1>
+<p>Re-ignited</p>
+</header>
+      <nav>
+<ul>
+  <li><a href="/everything-burns/index.html">Home</a></li>
+  <li><a href="/everything-burns/posts">Posts</a></li>
+  <li>Mastodon: <a rel="me" href="https://hachyderm.io/@jimfl">@jimfl@hachyderm.io</a></li>
+</ul>
+</nav>
+      <hr>
+      <main><article class="post"><header><h1 id="tofu?-stfu!">TOFU? STFU!</h1><p>
+      Friday, 24 Mar 2023
+      
+    </p></header><div><p>This morning was one of those popcorn-for-breakfast days when the tech world
+learns about some impactful security event with a package or resource that is
+depended upon by many teams across many companies and open source or personal
+projects.</p><p>GitHub is more or less a core part of the development tooling for many projects
+around the world. This morning, GitHub announced that the RSA SSH private key
+material for github.com was exposed, and therefore must be replaced with a
+different key.  I learned about it by reading about it. Others learned about it
+when their automated processes involving GitHub started failing, or when their
+manual processes started throwing up scary messages.</p><p>If this event did not break your GitHub connected workflows that use SSH, you
+have a problem. I will try to get into the nature of that problem below.</p><p>In what follows, I will attempt to avoid criticizing GitHub’s handling of this
+event or editorialzing about the incident itself. You can help keep me honest 
+here by reaching out to @jimfl@hachyderm.io on Mastodon. (Other techies commenting
+on the incident are fair game though!)</p><p>The key in question is used to authenticate and identify GitHub in interactions
+which use SSH as a transport, so that clients have some assurance that they are
+indeed talking to GitHub, and not someone trying to impersonate GitHub.</p><h2 id="what-is-at-stake">What is at stake</h2><p>Many GitHub users were inconvenienced by the failure of their automated
+processes, the questions about the GitHub authentication failure messages
+to the helpdesk, and the need to update all the systems that interact  with
+GitHub to be able to accept (I am actively trying to avoid the word “trust”
+throughout) the replacement key.</p><p>These failures are a good thing, and part of the design of SSH, and again,
+the lack of failures needs to be  investigated by anyone who “got lucky.”
+These failures aren’t why many people are upset. And many of the  people who
+are upset for the right reasons are, in my opinion, still upset for the wrong
+reasons.</p><p>It is important to understand what can go wrong if someone is able to trick
+a software developer or automated process into beliving that they are GitHub.
+This would allow an attacker to inject whatever source code they pleased into
+the code of a package, when a package is pulled down from GitHub to be built.
+That’s the biggest danger, though there are likely some other tricky things
+that can be accomplished by someone in this position.</p><p>One of the nasty things about public-key cryptography is that that private part
+of the key must be kept safe and only usable by the party that it means to 
+authenticate. The private key is just a blob of data from which infinite copies can
+be made, and it is almost impossible to detect if a copy has been made.</p><h2 id="tr*st-on-first-use-(tofu)">Tr*st On First Use (TOFU)</h2><p>SSH is used to create encrypted and authenticated connections between computers. 
+It was introduced in 1995, and has evolved somewhat since then. SSH connections
+can be used to protect interactive terminal sessions, run commands on other 
+computers, or transfer data. Both the client and server has a public-key pair. 
+The client’s private key is used to authenticate them to the system, and the
+server’s private key is used to authenticate the server to the client.</p><p>In order to accept each others keys, the server needs to know the public key
+of the client, and the client needs to know the public key of the server.
+Many of the use cases for SSH were that a handfull of users (clients) would
+be using SSH to connect  to a larger number of servers, and so the dynamics of
+the way key material was managed  reflect that. public key material resides in
+files on the filesystem. As a user, you <em>could</em> go around and collect all the
+public keys from all the machines you need to talk to, and put them in your
+<code class="inline">authorized_keys</code> file, but first, that’s a hassle, and second, the server
+authenticating itself to the client is <strong>far and away</strong> less important than the
+client authenticating to the server (Right? That’s right, isn’t it?)</p><p>So, as a convenience measure, if the client doesn’t have the public key of the
+server, it will give the user an opportunity to accept the public key that was
+used in the initial connection as the key for that server going forward. This 
+interaction is called “Trust On First Use,” or TOFU for short. The next time
+the client makes a connection to that machine, the public key better be the same, 
+or an intentionally scary, <code class="inline">ALL CAPS BECAUSE YO, PAY ATTENTION</code> message is 
+presented to the client.</p><p>SSH TOFU doesn’t work in the other direction. The server needs to be configured with
+the client’s key in advance. Commonly, the user logs in with a username/password,
+sets up the key, and then can use SSH from that point forward. Sometimes this
+will be done by administrators for the clients.</p><h2 id="other-uses-for-ssh">Other uses for SSH</h2><p>SSH was initially designed for these many-to-many, ad-hoc interactions between
+machines, where the authentication of the client was placed above the authentication
+of the server to the client. </p><p>SSH is a convenient way to arrange protected communications of many kinds, and even
+create ad-hoc private networks, tunnels, and proxies between systems. </p><p>Before GitHub, the git source code manager system was able to be configured to use
+SSH to authenticate users and encrypt communications between git repositories on
+multiple machines. The git system itself is designed to help developers distributed
+across multiple computers coordinate changes to software source code. One common 
+pattern that emerged was that there would be a central “repo” which all the developers
+would coordinate with. GitHub is this central repository pattern writ large. SSH is only 
+one of the ways users authenticate with GitHub, and again, the <em>primary</em> important 
+authentication is authenticating the client to the server (Right?)</p><h2 id="critical-response">Critical Response</h2><p>Much of the critical response around this incident centers around how GitHub might 
+have better protected the key material used for their server key, which much 
+gobsmacked handwringing about why they were not using a Hardware Security Module
+to manage the key (HSMs are hard. Really hard. Hard. Escpecially hard to automate 
+against in a secure manner).</p><p>But really, I see the problem is the attitude, handed down from decades of SSH 
+use, that the authentication of server to client is secondary to the authentication
+of client to server, which leads to acceptance of TOFU, around which there are no
+tried and true controls. You can replace the server key, which causes everyone a
+bad day (imagine Gary Oldman screaming EV-REE-ONE here), but this interacts with
+another phenomenon in a potentially destructive way. That phenomenon is normalization 
+of deviance. At the end of the day, most of the people who encounter the SSH error
+they get from github, are not scared. They’re trying to get something done. They’ve
+seen the SSH error a bunch of times. Things go wonky, need to get fixed. Nobody is
+actually trying to perpetrate a man-in-the-middle attack. So they will accept the
+new key and move on, without deep inspection, and certainly no verification of the
+gibberish-looking key signature for the new key.</p><p>What this means is that there is still an attack vector against people who have
+not yet  tried to connect to GitHub. They’ll get the error, their colleague
+will say “Oh, yeah, GitHub had to rotate their key,” and they’ll accept the new
+key, which might not be from GitHub.</p><p>The simple fact is that for a critical resource of the scale and impact of
+GitHub,  authentication of the service is equally important as authentication
+of the clients,  the TOFU dynamic cannot provide the assurances it should.
+You can be assured that some actors  are feverishly trying to work out how to
+exploit straggler users who have not yet  updated their local copy to the new
+GitHub key.</p></div></article></main>
+      <hr>
+      <footer>
+        
+<!--=====================================-->
+<!-- Override "includes/footer.html.eex" -->
+<!-- to customize your footer contents.  -->
+<!--=====================================-->
+
+        <p>
+          Powered by <a href="https://github.com/Dalgona/Serum">Serum</a> v1.5.1,
+          with <a href="https://github.com/Dalgona/serum-theme-essence">Essence</a> theme
+        </p>
+      </footer>
+    </div>
+    <script src="/everything-burns/assets/js/prism.js"></script>
+  </body>
+</html>
+<script>
+const ws_url = "ws://" + location.host + "/serum_live_reloader";
+var ws;
+
+connect();
+
+function connect() {
+  ws = new WebSocket(ws_url);
+  ws.onmessage = onMessage;
+  ws.onclose = onClose;
+}
+
+function onMessage(e) {
+  if (e.data === "reload") {
+    location.reload();
+  }
+}
+
+function onClose(e) {
+  console.warn("WebSocket disconnected from server. Reconnecting in 10 seconds.");
+  setTimeout(connect, 10000)
+}
+</script>
