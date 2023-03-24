@@ -70,7 +70,7 @@ be using SSH to connect  to a larger number of servers, and so the dynamics of
 the way key material was managed  reflect that. public key material resides in
 files on the filesystem. As a user, you <em>could</em> go around and collect all the
 public keys from all the machines you need to talk to, and put them in your
-<code class="inline">authorized_keys</code> file, but first, that’s a hassle, and second, the server
+<code class="inline">known_hosts</code> file, but first, that’s a hassle, and second, the server
 authenticating itself to the client is <strong>far and away</strong> less important than the
 client authenticating to the server (Right? That’s right, isn’t it?)</p><p>So, as a convenience measure, if the client doesn’t have the public key of the
 server, it will give the user an opportunity to accept the public key that was
