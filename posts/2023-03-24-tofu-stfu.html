@@ -37,7 +37,7 @@ material for github.com was exposed, and therefore must be replaced with a
 different key.  I learned about it by reading about it. Others learned about it
 when their automated processes involving GitHub started failing, or when their
 manual processes started throwing up scary messages.</p><p>If this event did not break your GitHub connected workflows that use SSH, you
-have a problem. I will try to get into the nature of that problem below.</p><p>In what follows, I will attempt to avoid criticizing GitHub’s handling of this
+may have a problem. I will try to get into the nature of that problem below.</p><p>In what follows, I will attempt to avoid criticizing GitHub’s handling of this
 event or editorialzing about the incident itself. You can help keep me honest 
 here by reaching out to @jimfl@hachyderm.io on Mastodon. (Other techies commenting
 on the incident are fair game though!)</p><p>The key in question is used to authenticate and identify GitHub in interactions
@@ -48,6 +48,8 @@ to the helpdesk, and the need to update all the systems that interact  with
 GitHub to be able to accept (I am actively trying to avoid the word “trust”
 throughout) the replacement key.</p><p>These failures are a good thing, and part of the design of SSH, and again,
 the lack of failures needs to be  investigated by anyone who “got lucky.”
+You should at least verify that you’re using ECDSA or Ed2559 and not RSA keys,
+in the absence of an error.
 These failures aren’t why many people are upset. And many of the  people who
 are upset for the right reasons are, in my opinion, still upset for the wrong
 reasons.</p><p>It is important to understand what can go wrong if someone is able to trick
