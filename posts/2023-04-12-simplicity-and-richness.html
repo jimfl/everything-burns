@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Surprising Richness from Simplicity - Everything Burns</title>
+    <link rel="stylesheet" href="/everything-burns/assets/css/style.css">
+    <link rel="stylesheet" href="/everything-burns/assets/css/prism.css">
+    
+<link rel="alternate" type="application/rss+xml" title="Feed for Everything Burns" href="https://jimfl.github.io/everything-burns/rss.xml" />
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="top">
+<h1><a href="/everything-burns/">Everything Burns</a></h1>
+<p>Re-ignited</p>
+</header>
+      <nav>
+<ul>
+  <li><a href="/everything-burns/index.html">Home</a></li>
+  <li><a href="/everything-burns/posts">Posts</a></li>
+  <li>Mastodon: <a rel="me" href="https://hachyderm.io/@jimfl">@jimfl@hachyderm.io</a></li>
+</ul>
+</nav>
+      <hr>
+      <main><article class="post"><header><h1 id="surprising-richness-from-simplicity">Surprising Richness from Simplicity</h1><p>
+      Wednesday, 12 Apr 2023
+      
+        <span class="tags">
+          Tags:
+          
+            <a class="tag" href="/everything-burns/tags/markdown">markdown</a><a class="tag" href="/everything-burns/tags/rss">rss</a></span></p></header><div><p>Recently I have been tinkering with RSS feeds in code, initially working on code to fetch and store the feeds, so
+that later I could play around with ways to present and organize feeds and entries. The shape, format, and contents
+of RSS feeds vary wildly, and I wanted a way to quickly review what sorts of things I was getting in different 
+feeds. Markdown seemed like the simplest thing that could possibly work, so I whipped up some code to spit out
+a feed as markdown, where each of the entries looks like this</p><pre><code class="">### [When I&#39;m An Astronaut](https://www.metafilter.com/198913/When-Im-An-Astronaut)
+* author: box 
+* date: 2023-04-10
+* #dreampop, #ethereal, #indierock, #music, #shoegaze</code></pre><p>into a file named <code class="inline">&lt;feed title&gt;.md</code>. Nothing could be more low-tech.</p><p>I use <a href="https://logseq.com/">Logseq</a> to take notes, which uses markdown to store notes, and can also open 
+directories of existing markdown files, so I opened the folder in Logseq, and what I saw surprised me. Logseq
+creates an index of pages, and creates references between them, wiki-style, if you mention another page by
+surrounding its title with <code class="inline">[[]]</code>. Logseq also uses a hashtag notation for grouping pages together by tags. So my format
+contained a happy accident. In addition, Logseq has a journal format. Any time you open the journal, it adds a section
+for today’s date at the top. If you ping a date in any other page like <code class="inline">[[2023-04-10]]</code>
+then the page gets linked into that journal entry for that day. </p><p>Realizing this, I made a simple change to my markdown template to look like this instead:</p><pre><code class="">### [When I&#39;m An Astronaut](https://www.metafilter.com/198913/When-Im-An-Astronaut)
+* author: box [[2023-04-10]]
+* #[[dreampop]], #[[ethereal]], #[[indierock]], #[[music]], #[[shoegaze]]</code></pre><p>Now, here is what the MetaFilter page looks like in Logseq</p><p><img src="/everything-burns/media/logseq/logseq_feed.png" alt="MetaFilter feed page in Logseq"/></p><p>For the feed pages, I did end up using some Logseq-specific markdown at the top for the feed metadata. Here’s the
+<a href="https://hexdocs.pm/eex/main/EEx.html">EEx</a> template:</p><p><img src="/everything-burns/media/logseq/feed_template.png" alt="EEx template"/></p><p>Here’s a page that gets generated for the <code class="inline">#Art</code> tag. Note that this page doesn’t get clobbered when I overwite
+the individual feed pages, the entries that are taged <code class="inline">#Art</code> just get linked into the “Linked References” section. 
+Any notes I type in the page istelf are retained.</p><p><img src="/everything-burns/media/logseq/logseq_tag.png" alt="Art tag page in Logseq"/></p><p>Here’s the journal page. Just like the tag pages, the feed entries are just referenced (and nicely grouped by feed).</p><p><img src="/everything-burns/media/logseq/logseq_journal.png" alt="Journal section in Logseq"/></p><p>All of this is done for free by Logseq. All I did was dump the markdown into one <code class="inline">.md</code> file per feed.</p><p>Here’s perhaps the coolest feature: The Logseq graph view:</p><p><img src="/everything-burns/media/logseq/logseq_graph.png" alt="Graph view in Logseq"/></p><p>This really does work as a very rudimentary feed reader, all kind of by accident.</p><p>One of this things I learned in this exercise is that the RSS feed for this site could use some improvements. I’ll
+spare you the screenshot of my Logseq TODO list.</p></div></article></main>
+      <hr>
+      <footer>
+        
+<!--=====================================-->
+<!-- Override "includes/footer.html.eex" -->
+<!-- to customize your footer contents.  -->
+<!--=====================================-->
+
+        <p>
+          Powered by <a href="https://github.com/Dalgona/Serum">Serum</a> v1.5.1,
+          with <a href="https://github.com/Dalgona/serum-theme-essence">Essence</a> theme
+        </p>
+      </footer>
+    </div>
+    <script src="/everything-burns/assets/js/prism.js"></script>
+  </body>
+</html>
+<script>
+const ws_url = "ws://" + location.host + "/serum_live_reloader";
+var ws;
+
+connect();
+
+function connect() {
+  ws = new WebSocket(ws_url);
+  ws.onmessage = onMessage;
+  ws.onclose = onClose;
+}
+
+function onMessage(e) {
+  if (e.data === "reload") {
+    location.reload();
+  }
+}
+
+function onClose(e) {
+  console.warn("WebSocket disconnected from server. Reconnecting in 10 seconds.");
+  setTimeout(connect, 10000)
+}
+</script>
