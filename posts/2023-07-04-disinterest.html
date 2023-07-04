@@ -1,0 +1,108 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Disinterest - Everything Burns</title>
+    <link rel="stylesheet" href="/everything-burns/assets/css/style.css">
+    <link rel="stylesheet" href="/everything-burns/assets/css/prism.css">
+    
+<link rel="alternate" type="application/rss+xml" title="Feed for Everything Burns" href="https://jimfl.github.io/everything-burns/rss.xml" />
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="top">
+<h1><a href="/everything-burns/">Everything Burns</a></h1>
+<p>Re-ignited</p>
+</header>
+      <nav>
+<ul>
+  <li><a href="/everything-burns/index.html">Home</a></li>
+  <li><a href="/everything-burns/posts">Posts</a></li>
+  <li>Mastodon: <a rel="me" href="https://hachyderm.io/@jimfl">@jimfl@hachyderm.io</a></li>
+</ul>
+</nav>
+      <hr>
+      <main><article class="post"><header><h1 id="disinterest">Disinterest</h1><p>
+      Tuesday, 4 Jul 2023
+      
+        <span class="tags">
+          Tags:
+          
+            <a class="tag" href="/everything-burns/tags/advice-and-admonitions-for-young-people">advice-and-admonitions-for-young-people</a></span></p></header><div><p>I used to get annoyed and dejected when it seemed like the senior leadership
+in my company, department, or organization seemed to take little interest
+in the projects that my team and I were working on.  This can all be very
+disheartening, and impact the morale of the team putting all their working
+energy into the project.  Too late in my career I learned to think
+about interest by senior leadership in a completely different way. I eventually
+learned to take this as a good sign under the right conditions.</p><p>The evidence of disinterest by senior leadership can take the form of</p><ul><li>difficulty getting into meetings with the senior leader
+</li><li>inattentiveness/lack of participation in meetings by the senior leader. Open laptop/replying to texts/playing video games (this has happened to me. You know who you are.)
+</li><li>Project status/presentations near the end of agendas, making them more likely to be dropped as ballast for time reasons
+</li><li>Explicit: “I don’t care about this.” (this has happened to me)
+</li></ul><p>For the purposes of what follows, a senior leader is someone either at director
+or vice president level. Like you, as an individual contributor, these people
+have a bunch of things going on, and like you, they need to carefully choose
+their battles, because one person can only handle so much cognitive load before
+they start to become very ineffective, whether it’s at a tactical level, or a
+strategic one.</p><p>So, if a senior leader takes a concentrated interest in your team’s project,
+likely one of the following (sometimes both) is true:</p><ul><li>your project has the potential to make them look very good,
+</li><li>your project has the potential to make them look very bad.
+</li></ul><p>How can you tell one from the other? If you don’t know which it is, working
+with your team’s manager on your own situational awareness is probably a good
+topic for an upcoming conversation. Signs that your project has the potential
+to make the senior leader look good include:</p><ul><li>delivery dates that coincide with internal or customer facing events where product announcements are made
+</li><li>the senior leader is exploring if scope can be expanded
+</li><li>the senior leader is asking questions about the customer-facing aspects of the project
+</li></ul><p>Signs that it’s the other way around</p><ul><li>the project schedule is in open negotiation
+</li><li>the senior leader is exploring if scope can be <em>reduced</em></li><li>the senior leader is asking questions about internal process
+</li></ul><p>Either way, your team is likely to be facing some increased pressure to perform, which isn’t always fun.
+That being said, it’s possible to learn a great deal from senior leaders when they are working closely 
+with you and your team. And not always the things they’d prefer you to learn!</p><p>But what can you infer from the apparent lack of interest? Most likely, the
+senior leader has delegated the responsibility to the team’s manager or maybe
+one level above them. They are trusting that line manager to make reasonable
+progress, and the high level signals they receive (status reports, goal-meeting, lack of requests for interference, lack of escalations from dependent
+projects) indicate that the project is on track and being well run. It’s not always 
+like this; sometimes middle management is, in fact, acutely incompetent. But if you’re
+giving the benefit of the doubt, the above should hold.</p></div></article></main>
+      <hr>
+      <footer>
+        
+<!--=====================================-->
+<!-- Override "includes/footer.html.eex" -->
+<!-- to customize your footer contents.  -->
+<!--=====================================-->
+
+        <p>
+          Powered by <a href="https://github.com/Dalgona/Serum">Serum</a> v1.5.1,
+          with <a href="https://github.com/Dalgona/serum-theme-essence">Essence</a> theme
+        </p>
+      </footer>
+    </div>
+    <script src="/everything-burns/assets/js/prism.js"></script>
+  </body>
+</html>
+<script>
+const ws_url = "ws://" + location.host + "/serum_live_reloader";
+var ws;
+
+connect();
+
+function connect() {
+  ws = new WebSocket(ws_url);
+  ws.onmessage = onMessage;
+  ws.onclose = onClose;
+}
+
+function onMessage(e) {
+  if (e.data === "reload") {
+    location.reload();
+  }
+}
+
+function onClose(e) {
+  console.warn("WebSocket disconnected from server. Reconnecting in 10 seconds.");
+  setTimeout(connect, 10000)
+}
+</script>
