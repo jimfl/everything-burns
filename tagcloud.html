@@ -1,0 +1,112 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Tag Cloud Influences - Everything Burns</title>
+    <link rel="stylesheet" href="/everything-burns/assets/css/style.css">
+    <link rel="stylesheet" href="/everything-burns/assets/css/prism.css">
+    
+<link rel="alternate" type="application/rss+xml" title="Feed for Everything Burns" href="https://jimfl.github.io/everything-burns/rss.xml" />
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="top">
+<h1><a href="/everything-burns/">Everything Burns</a></h1>
+<p>Re-ignited</p>
+</header>
+      <nav>
+<ul>
+  <li><a href="/everything-burns/index.html">Home</a></li>
+  <li><a href="/everything-burns/posts">Posts</a></li>
+  <li>Mastodon: <a rel="me" href="https://hachyderm.io/@jimfl">@jimfl@hachyderm.io</a></li>
+</ul>
+</nav>
+      <hr>
+      <main><article><div><h1 id="tag-cloud-influences">Tag Cloud Influences</h1><p>In the mid-1990s, I was working in the Computing and Communications department
+at Brookhaven National Laboratory in Long Island, New York as a computer
+analyst generalist. The World Wide Web was only a couple of years old and some
+enterprising staff and scientists had set up a web presence for the lab, all
+users of the system had a personal web space. Like most people with a web page,
+I had a page of links of interesting web pages, and after a while, my list had
+gotten long enough that it was difficult to organize and find things.</p><p>I decided I would take the random approach, so that every time someone loaded
+the page, a different set of links  would be featured. I wrote a CGI program
+that rendered each link in a random order, enclosed in a <code class="inline">&lt;font&gt;</code> tag, and
+set the color and text size to a random value. I think either CSS hadn’t been
+available in all browsers at the time, or I just didn’t know it. So I used
+<code class="inline">&lt;font&gt;</code> tags.</p><p>This was just a wall of text of various sizes and colors that changed every
+time the page was loaded. It was fun and different from everyone else’s big
+bags of links.</p><p>In 1998, I moved back to Seattle, ended up with a DSL internet connection
+in my house, and had a linux server in my back room, that hosted the
+<code class="inline">tensegrity.net</code> domain, where I eventually hosted a weblog, a wiki, and some
+photos, and email for my family. I was an avid Perl programmer, and wrote various 
+utilities and CGI programs to help out. For a blogging platform I was using 
+MovableType, which had a plugin system.</p><p>I was also a very early user of Flickr. The team that built Flickr was originally
+working on a game called <a href="https://gamicus.fandom.com/wiki/Game_Neverending">Game Neverending</a>
+(GNE)
+which a friend had gotten me into. The team kept adding features to the chat
+facility in the game, and eventually it was possible to upload images into chat.
+One morning, Stewart Butterfield (alias St. Wart) texted me in GNE
+and asked “Have you tried Flickr yet?” They had spun the GNE chat into a separate
+app which would become Flickr.</p><p>One of the first plugins I wrote for Movable Type was a widget which used the
+Flickr API to list the most recent photos for an account, and show them in the
+Movable Type sidebar. You can see an example of it <a href="https://web.archive.org/web/20040919210957/http://jimfl.tensegrity.net/">here</a>.
+I think this got the attention of the Flickr team, who may also have clicked on the <a href="https://web.archive.org/web/20041009201303/http://jimfl.tensegrity.net/zeitgeist/">Zeitgeist</a>
+link in the sidebar.</p><p>The Zeitgeist page was another MovableType plugin I wrote which scanned my web server’s
+access log, collated all of the referrals from search engines, and extracted the search
+terms. For presentaion of this data, I went back to my page-of-links style of changing the
+color and size of the terms. Except this time, instead of random sizes, the size was based
+on the frequency of the term in the search referrals.</p><p>You can read more about <a href="https://web.archive.org/web/20041204231120/http://twiki.tensegrity.net/bin/view/Main/SearchReferralZeitgeist">how the search referral zeitgeist plugin worked</a>.</p><p>One interesting anecdote is that the zeitgeist eventually became self-
+referential so that search engines would find the page itself, and so certain
+terms just snowballed out of control, and the zeitgeist page became the top
+result for some terms on some search engines. It  would have been easy to fix,
+but I never got around to it. Some of the search terms were somewhat unsavoury,
+and I sort of caught a glimpse of the dark underside of the internet. My
+favorite snowballed term was “Ewan MacGregor Nude Photos,” which happened
+because I mentioned a film in my blog where Ewan MacGregor appeared nude.</p><p>Flickr put the technique to actual taxonomic effect, by representing the
+number of photos with a specific tag as a larger font, and they started a
+trend.</p><p>Whenever I make the mistake of mentioning my role in this to colleagues, it
+always seems to get spread around, and I have to apologise, just like Flickr 
+did at the Webby Awards ceremony.</p></div></article></main>
+      <hr>
+      <footer>
+        
+<!--=====================================-->
+<!-- Override "includes/footer.html.eex" -->
+<!-- to customize your footer contents.  -->
+<!--=====================================-->
+
+        <p>
+          Powered by <a href="https://github.com/Dalgona/Serum">Serum</a> v1.5.1,
+          with <a href="https://github.com/Dalgona/serum-theme-essence">Essence</a> theme
+        </p>
+      </footer>
+    </div>
+    <script src="/everything-burns/assets/js/prism.js"></script>
+  </body>
+</html>
+<script>
+const ws_url = "ws://" + location.host + "/serum_live_reloader";
+var ws;
+
+connect();
+
+function connect() {
+  ws = new WebSocket(ws_url);
+  ws.onmessage = onMessage;
+  ws.onclose = onClose;
+}
+
+function onMessage(e) {
+  if (e.data === "reload") {
+    location.reload();
+  }
+}
+
+function onClose(e) {
+  console.warn("WebSocket disconnected from server. Reconnecting in 10 seconds.");
+  setTimeout(connect, 10000)
+}
+</script>
