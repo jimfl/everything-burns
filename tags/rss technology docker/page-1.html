@@ -1,0 +1,74 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Posts Tagged rss technology docker - Everything Burns</title>
+    <link rel="stylesheet" href="/everything-burns/assets/css/style.css">
+    <link rel="stylesheet" href="/everything-burns/assets/css/prism.css">
+    
+<link rel="alternate" type="application/rss+xml" title="Feed for Everything Burns" href="https://jimfl.github.io/everything-burns/rss.xml" />
+
+  </head>
+  <body>
+    <div id="wrapper">
+      <header id="top">
+<h1><a href="/everything-burns/">Everything Burns</a></h1>
+<p>Re-ignited</p>
+</header>
+      <nav>
+<ul>
+  <li><a href="/everything-burns/index.html">Home</a></li>
+  <li><a href="/everything-burns/posts">Posts</a></li>
+  <li>Mastodon: <a rel="me" href="https://hachyderm.io/@jimfl">@jimfl@hachyderm.io</a></li>
+</ul>
+</nav>
+      <hr>
+      <main><article class="list"><header><h1 id="posts-tagged-rss-technology-docker">Posts Tagged rss technology docker</h1></header><div><ul><li class="article"><h2 id="multi-device-rss-reading-"><a href="/everything-burns/posts/2023-07-16-multi-device-rss.html">Multi-device RSS reading</a><br/></h2><p class="post-date">
+            Sunday, 16 Jul 2023
+            
+              <span class="tags">
+                Tags:
+                
+                  <a class="tag" href="/everything-burns/tags/rss technology docker">rss technology docker</a></span></p><p class="post-preview">I see a lot of questions about how one can keep RSS readers synced across devices in a self-hosted way. Here is a description and a step by step process of how I have set this up for myself. Rather th…</p></li></ul></div><ul class="pagination"><li><span class="page-button current">1</span></li></ul></article></main>
+      <hr>
+      <footer>
+        
+<!--=====================================-->
+<!-- Override "includes/footer.html.eex" -->
+<!-- to customize your footer contents.  -->
+<!--=====================================-->
+
+        <p>
+          Powered by <a href="https://github.com/Dalgona/Serum">Serum</a> v1.5.1,
+          with <a href="https://github.com/Dalgona/serum-theme-essence">Essence</a> theme
+        </p>
+      </footer>
+    </div>
+    <script src="/everything-burns/assets/js/prism.js"></script>
+  </body>
+</html>
+<script>
+const ws_url = "ws://" + location.host + "/serum_live_reloader";
+var ws;
+
+connect();
+
+function connect() {
+  ws = new WebSocket(ws_url);
+  ws.onmessage = onMessage;
+  ws.onclose = onClose;
+}
+
+function onMessage(e) {
+  if (e.data === "reload") {
+    location.reload();
+  }
+}
+
+function onClose(e) {
+  console.warn("WebSocket disconnected from server. Reconnecting in 10 seconds.");
+  setTimeout(connect, 10000)
+}
+</script>
